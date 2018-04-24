@@ -1,6 +1,6 @@
 {
-  "name": "todo-native-app",
-  "app_id": "394b94cf",
+  "name": "ics-app",
+  "app_id": "480a5c1b",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
