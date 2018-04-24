@@ -1,0 +1,8 @@
+{
+  "name": "todo-native-app",
+  "app_id": "394b94cf",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
