@@ -1,7 +1,7 @@
 {
   "name": "ics-app",
   "app_id": "480a5c1b",
-  "type": "ionic-angular",
+  "type": "ionic-angular", 
   "integrations": {
     "cordova": {}
   }
