@@ -11,22 +11,23 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class RestProvider {
   private apiUrl = 'https://restcountries.eu/rest/v2/all';
-  constructor(public http: HttpClient) {
-    console.log('Hello RestProvider Provider');
-  }
+  private serverApiUrl = 'https://icsapi.herokuapp.com/';
+
+  constructor(public http: HttpClient) { }
+
   getCountries(): Observable<{}> {
     return this.http.get(this.apiUrl).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
   }
-  
+
   private extractData(res: Response) {
     let body = res;
-    return body || { };
+    return body || {};
   }
-  
-  private handleError (error: Response | any) {
+
+  private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const err = error || '';

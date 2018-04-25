@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { AuthLoginPage } from '../auth/auth.login';
 
 @Component({
   selector: 'page-home',
@@ -23,4 +24,6 @@ export class HomePage {
          countries => this.countries = countries,
          error =>  this.errorMessage = <any>error);
   }
+
+  redirectToLoginPage = ()=>{ this.navCtrl.push(AuthLoginPage) }
 }

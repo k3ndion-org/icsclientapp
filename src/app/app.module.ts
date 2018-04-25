@@ -3,21 +3,23 @@ import { ErrorHandler, NgModule,  Injectable, Injector } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RestProvider } from '../providers/rest/rest';
 
 import { Pro } from '@ionic/pro';
+import { DefaultRequestOptions } from '../providers/defaultRequestOptions';
 
 Pro.init('480a5c1b', {
   appVersion: '1.1.0'
 })
 
 @Injectable()
-export class MyErrorHandler implements ErrorHandler {
+export class AppErrorHandler implements ErrorHandler {
   ionicErrorHandler: IonicErrorHandler;
 
   constructor(injector: Injector) {
@@ -47,7 +49,8 @@ export class MyErrorHandler implements ErrorHandler {
     HttpModule,
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,10 +60,10 @@ export class MyErrorHandler implements ErrorHandler {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     IonicErrorHandler,
-    [{ provide: ErrorHandler, useClass: MyErrorHandler }]
+    [{ provide: ErrorHandler, useClass: AppErrorHandler }],
+    [{ provide: BaseRequestOptions, useClass: DefaultRequestOptions }]
   ]
 })
 export class AppModule {}

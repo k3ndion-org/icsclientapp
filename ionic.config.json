@@ -1,5 +1,5 @@
 {
-  "name": "ics-app",
+  "name": "event-capturer",
   "app_id": "480a5c1b",
   "type": "ionic-angular", 
   "integrations": {
