@@ -11,39 +11,42 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RestProvider } from '../providers/rest/rest';
 
-import { Pro } from '@ionic/pro';
+//import { Pro } from '@ionic/pro';
 import { DefaultRequestOptions } from '../providers/defaultRequestOptions';
+import { AuthLoginPage } from '../pages/auth/auth.login';
+import { AuthProvider } from '../providers/auth/auth.provider';
 
-Pro.init('480a5c1b', {
-  appVersion: '1.1.0'
-})
+// Pro.init('480a5c1b', {
+//   appVersion: '1.1.0'
+// })
 
-@Injectable()
-export class AppErrorHandler implements ErrorHandler {
-  ionicErrorHandler: IonicErrorHandler;
+// @Injectable()
+// export class AppErrorHandler implements ErrorHandler {
+//   ionicErrorHandler: IonicErrorHandler;
 
-  constructor(injector: Injector) {
-    try {
-      this.ionicErrorHandler = injector.get(IonicErrorHandler);
-    } catch(e) {
-      // Unable to get the IonicErrorHandler provider, ensure
-      // IonicErrorHandler has been added to the providers list below
-    }
-  }
+//   constructor(injector: Injector) {
+//     try {
+//       this.ionicErrorHandler = injector.get(IonicErrorHandler);
+//     } catch(e) {
+//       // Unable to get the IonicErrorHandler provider, ensure
+//       // IonicErrorHandler has been added to the providers list below
+//     }
+//   }
 
-  handleError(err: any): void {
-    Pro.monitoring.handleNewError(err);
-    // Remove this if you want to disable Ionic's auto exception handling
-    // in development mode.
-    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
-  }
-}
+//   handleError(err: any): void {
+//     Pro.monitoring.handleNewError(err);
+//     // Remove this if you want to disable Ionic's auto exception handling
+//     // in development mode.
+//     this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+//   }
+// }
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AuthLoginPage
   ],
   imports: [
     HttpModule,
@@ -55,14 +58,16 @@ export class AppErrorHandler implements ErrorHandler {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AuthLoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     RestProvider,
+    AuthProvider,
     IonicErrorHandler,
-    [{ provide: ErrorHandler, useClass: AppErrorHandler }],
+    //[{ provide: ErrorHandler, useClass: AppErrorHandler }],
     [{ provide: BaseRequestOptions, useClass: DefaultRequestOptions }]
   ]
 })

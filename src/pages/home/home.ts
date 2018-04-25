@@ -25,5 +25,5 @@ export class HomePage {
          error =>  this.errorMessage = <any>error);
   }
 
-  redirectToLoginPage = ()=>{ this.navCtrl.push(AuthLoginPage) }
+  redirectToLoginPage = ()=>{ console.log('call '); this.navCtrl.push(AuthLoginPage) }
 }

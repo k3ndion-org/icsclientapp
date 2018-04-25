@@ -10,12 +10,12 @@ import { HomePage } from '../home/home';
 export class AuthLoginPage {
   errorMessage: string;
   loading: any;
-  registerCredentials = { email: '', password: '' };
+  registerCredentials = { email: '', password: '' }; 
   constructor(public navCtrl: NavController,
     private authProvider: AuthProvider,
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController
-  ) { }
+  ) { console.log('auth') }
 
   ionViewDidLoad() { }
 
