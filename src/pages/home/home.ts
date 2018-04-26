@@ -1,36 +1,31 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { RestProvider } from '../../providers/rest/rest';
-import { AuthLoginPage } from '../auth/auth.login';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { FilterPopOverPage } from '../filter-pop-over/filter-pop-over';
 
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Tabs</ion-title>
-    </ion-navbar>
-  </ion-header>
-  <ion-content></ion-content>
-  `
-})
-class TabsTextContentPage {
-  constructor() { }
-}
+/**
+ * Generated class for the HomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
-
 export class HomePage {
-  tab1: TabsTextContentPage;
-  tab2: TabsTextContentPage;
-  constructor(public navCtrl: NavController, public rest: RestProvider) {
-    this.tab1 = new TabsTextContentPage();
-    this.tab2 = new TabsTextContentPage();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private popoverCtrl: PopoverController) {
   }
 
-  ionViewDidLoad() { }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
 
-  redirectToLoginPage = () => { console.log('call '); this.navCtrl.push(AuthLoginPage) }
+  presentPopover() {
+    let popover = this.popoverCtrl.create(FilterPopOverPage);
+    popover.present();
+  }
 }

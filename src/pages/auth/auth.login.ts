@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, IonicPage } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth.provider';
 import { HomePage } from '../home/home';
 
@@ -15,7 +15,7 @@ export class AuthLoginPage {
     private authProvider: AuthProvider,
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController
-  ) { console.log('auth') }
+  ) {  }
 
   ionViewDidLoad() { }
 

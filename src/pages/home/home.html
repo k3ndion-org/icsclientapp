@@ -1,6 +1,19 @@
-<ion-content>
-  <ion-tabs>
-    <ion-tab tabIcon="water" tabTitle="Water" [root]="tab1"></ion-tab>
-    <ion-tab tabIcon="leaf" tabTitle="Life" [root]="tab2"></ion-tab>
-  </ion-tabs>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover();">
+        <ion-icon name="fa fa-slider-v"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  Home
 </ion-content>
