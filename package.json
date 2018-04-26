@@ -34,7 +34,7 @@
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic": "^4.1.6",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
-    "cordova-plugin-ionic-webview": "^1.2.0",
+    "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-sqlite-storage": "^2.3.1",
@@ -63,7 +63,9 @@
         "APP_ID": "480a5c1b",
         "CHANNEL_NAME": "Master",
         "UPDATE_METHOD": "auto",
-        "WARN_DEBUG": "false"
+        "WARN_DEBUG": "false",
+        "UPDATE_API": "https://api.ionicjs.com",
+        "MAX_STORE": "2"
       },
       "cordova-sqlite-storage": {},
       "cordova-plugin-inappbrowser": {}

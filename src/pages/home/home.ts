@@ -4,26 +4,33 @@ import { RestProvider } from '../../providers/rest/rest';
 import { AuthLoginPage } from '../auth/auth.login';
 
 @Component({
+  template: `
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Tabs</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content></ion-content>
+  `
+})
+class TabsTextContentPage {
+  constructor() { }
+}
+
+@Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
-  countries: any;
-  errorMessage: string;
+  tab1: TabsTextContentPage;
+  tab2: TabsTextContentPage;
   constructor(public navCtrl: NavController, public rest: RestProvider) {
-
+    this.tab1 = new TabsTextContentPage();
+    this.tab2 = new TabsTextContentPage();
   }
 
-  ionViewDidLoad() {
-    this.getCountries();
-  }
+  ionViewDidLoad() { }
 
-  getCountries() {
-    this.rest.getCountries()
-       .subscribe(
-         countries => this.countries = countries,
-         error =>  this.errorMessage = <any>error);
-  }
-
-  redirectToLoginPage = ()=>{ console.log('call '); this.navCtrl.push(AuthLoginPage) }
+  redirectToLoginPage = () => { console.log('call '); this.navCtrl.push(AuthLoginPage) }
 }
