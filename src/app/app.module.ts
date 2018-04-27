@@ -31,7 +31,8 @@ import { FilterPopOverPageModule } from '../pages/filter-pop-over/filter-pop-ove
     HomePageModule,
     MenuTabsPageModule,
     SettingsPageModule,
-    FilterPopOverPageModule
+    FilterPopOverPageModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, AuthLoginPage],
