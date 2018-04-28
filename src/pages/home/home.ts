@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { FilterPopOverPage } from '../filter-pop-over/filter-pop-over';
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IEvent } from '../../services/event/event.model';
+import { Observable } from 'rxjs/observable';
+import { EventService } from '../../services/event/event.service';
 
 @IonicPage()
 @Component({
@@ -16,13 +12,21 @@ import { FilterPopOverPage } from '../filter-pop-over/filter-pop-over';
   templateUrl: 'home.html',
 })
 export class HomePage {
+  events: Observable<IEvent[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private popoverCtrl: PopoverController,
+    private eventService: EventService) {
+    this.events = this.eventService.getEvents()
+      .snapshotChanges()
+      .map(changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
+  ionViewDidLoad() { }
 
   presentPopover() {
     let popover = this.popoverCtrl.create(FilterPopOverPage);

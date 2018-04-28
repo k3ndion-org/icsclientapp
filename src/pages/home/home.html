@@ -15,5 +15,14 @@
 </ion-header>
 
 <ion-content padding>
-  Home <i class="fa fa-globe"></i>
+  <ion-list>
+    <ion-list-header>
+      Events
+    </ion-list-header>
+ 
+    <ion-item *ngFor="let event of events | async" detail-push navPush="EditNotePage" [navParams]="{model:event}">
+      {{event.title}}
+    </ion-item>
+  </ion-list>
+
 </ion-content>

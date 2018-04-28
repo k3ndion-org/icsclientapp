@@ -1,6 +1,5 @@
 page-login { 
     .login-content {
-      background: #56CA96;
    
       .logo-row {
         padding-top: 50px;
@@ -8,7 +7,6 @@ page-login {
       }
    
       .login-box {
-        background: #399F8B;
         padding: 20px 20px 0px 20px;
         margin-top: 30px;
       }
@@ -38,16 +36,9 @@ page-login {
          box-shadow: none !important;
        }
    
-       .submit-btn {
-         background: #51CFB1;
-         border-radius: 30px !important;
-         border: 1px solid #ffffff;
-       }
+       .submit-btn {}
    
-       .register-btn {
-         color: #ffffff;
-         font-size: 0.8em;
-       }
+       .register-btn {}
     }
    
   }
